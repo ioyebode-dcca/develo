@@ -39,7 +39,7 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
-          sh 'terraform plan -out=plan'
+//          sh 'terraform plan -out=plan'
         }
       }
     }
