@@ -39,7 +39,7 @@ try {
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
         ansiColor('xterm') {
-//          sh 'terraform plan -out=plan'
+          sh 'terraform plan -out=plan'
         }
       }
     }
@@ -58,13 +58,13 @@ try {
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
- //           sh 'terraform apply plan'
+            sh 'terraform apply plan'
           }
         }
       }
     }
 
-    // Run terraform show
+    // Run terraform destroy
     stage('destroy') {
       node {
       env.PATH += ":/usr/local/bin/"
@@ -75,7 +75,7 @@ try {
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
           ansiColor('xterm') {
-            sh 'terraform destroy -force'
+ //           sh 'terraform destroy -force'
           }
         }
       }
