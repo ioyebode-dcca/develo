@@ -3,6 +3,12 @@ String credentialsId = 'awsCredentials'
 pipeline {
     agent any
     stages {
+        stage ('one') {
+			steps {
+            cleanWs()
+			checkout scm
+			}
+		}
         stage ('Set Terraform path') {
             steps {
                 script {
@@ -17,7 +23,7 @@ pipeline {
             steps {
                 script {
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: credentialsId, accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
-                    dir('develo')
+                   // dir('develo')
                     env.PATH += ":/usr/local/bin/" 
                     ansiColor('xterm') {
                         sh 'pwd'
