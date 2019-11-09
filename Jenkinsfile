@@ -1,4 +1,4 @@
-/ Jenkinsfile
+// Jenkinsfile
 String credentialsId = 'awsCredentials'
 pipeline {
     agent any
