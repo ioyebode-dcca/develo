@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: credentialsId, accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
-                    dir('.')
+                    dir('develo')
                     env.PATH += ":/usr/local/bin/" 
                     ansiColor('xterm') {
                         sh 'pwd'
