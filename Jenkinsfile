@@ -11,7 +11,7 @@ pipeline {
                 }
             }
         }
-        stage ('Set Terraform path') {
+        stage ('Terraform init') {
             steps {
                 script {
                     env.PATH += ":/usr/local/bin/" 
