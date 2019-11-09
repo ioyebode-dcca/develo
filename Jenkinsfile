@@ -26,8 +26,8 @@ pipeline {
                     dir("${env.WORKSPACE}/aQA")
                     env.PATH += ":/usr/local/bin/" 
                     ansiColor('xterm') {
-                        sh 'pwd'
-                        sh 'terraform init -input=false'
+                        sh "pwd"
+                        sh "terraform init -input=false"
                     }
                 }
             }
