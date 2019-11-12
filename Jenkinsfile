@@ -9,7 +9,7 @@ pipeline {
             cleanWs()
 	    checkout scm
 	    }
-      	}
+	}
         stage ('Set Terraform path') {
             steps {
                 script {
