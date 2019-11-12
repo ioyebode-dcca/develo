@@ -25,6 +25,7 @@ pipeline {
                         sh 'pwd'
                         sh 'ls'
                         sh 'terraform init'
+                        sh 'terraform plan'
                     }    
                 }  
             }       
