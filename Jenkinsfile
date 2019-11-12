@@ -5,10 +5,10 @@ pipeline {
     agent any
     stages {
         stage ('one') {
-	     steps {
-                 cleanWs()
-	         checkout scm
-	     }
+	    steps {
+            cleanWs()
+	    checkout scm
+	    }
       	}
         stage ('Set Terraform path') {
             steps {
