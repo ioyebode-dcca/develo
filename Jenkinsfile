@@ -23,7 +23,7 @@ pipeline {
         stage ('Terraform init') {
             steps {
                 script {
-                  withCredentials(awsCredentials)
+                 // withCredentials(awsCredentials)
                     dir('.')
                     env.PATH += ":/usr/local/bin/"
                     ansiColor('xterm') {
