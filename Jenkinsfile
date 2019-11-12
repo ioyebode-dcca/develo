@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage ('one') {
 	    steps {
-            cleanWs()
-	    checkout scm
+                cleanWs()
+	        checkout scm
 	    }
 	}
         stage ('Set Terraform path') {
