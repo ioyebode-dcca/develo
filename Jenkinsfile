@@ -18,11 +18,13 @@ pipeline {
             steps {
                 script {
                     env.PATH += ":/usr/local/bin"
+                    dir('.')
                     //withCredentials('AWS_ACCESS_KEY_ID')
                     //withCredentials('AWS_SECRET_ACCESS_KEY')
                     ansiColor('xterm') {
                         sh 'terraform --version'
                         sh 'pwd'
+                        sh 'ls'
                         sh 'terraform init'
                     }    
                 }  
