@@ -4,12 +4,6 @@ def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credential
 pipeline {
     agent any
     stages {
-        stage ('one') {
-	    steps {
-                cleanWs()
-	        checkout scm
-	    }
-	}
         stage ('Set Terraform path') {
             steps {
                 script {
