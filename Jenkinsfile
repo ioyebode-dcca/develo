@@ -20,6 +20,8 @@ pipeline {
                     env.PATH += ":/usr/local/bin"
                     ansiColor('xterm') {
                         sh 'terraform --version'
+                        sh 'pwd'
+                        sh 'terraform init'
                     }    
                 }  
             }       
