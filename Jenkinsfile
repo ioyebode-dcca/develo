@@ -22,7 +22,7 @@ pipeline {
                 //withCredentilas('AWS_SECRET_ACCESS_KEY')
                 script {
                     env.PATH += ":/usr/local/bin"
-                    //withCredentials('AWS_ACCESS_KEY_ID')
+                    //withCredentials('$AWS_ACCESS_KEY_ID')
                     //withCredentials('AWS_SECRET_ACCESS_KEY')
                     ansiColor('xterm') {
                         sh 'terraform --version'
