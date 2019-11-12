@@ -25,7 +25,7 @@ pipeline {
                 script {
                  // withCredentials(awsCredentials)
                     dir('.')
-                    env.PATH += ":/usr/local/bin/"
+                    //env.PATH += ":/usr/local/bin/"
                     ansiColor('xterm') {
                         sh 'pwd'
                         sh 'terraform init -input=false'
