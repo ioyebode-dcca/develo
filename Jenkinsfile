@@ -24,11 +24,11 @@ pipeline {
             steps {
                 script {
                  // withCredentials(awsCredentials)
-                    dir('.')
+                    dir('/')
                     //env.PATH += ":/usr/local/bin/"
                     ansiColor('xterm') {
                         sh 'pwd'
-                        sh 'terraform init -input=false'
+                        sh 'terraform init'
                     }
                 }
             }
