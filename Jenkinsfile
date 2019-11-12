@@ -18,6 +18,7 @@ pipeline {
             steps {
                 script {
                     env.PATH += ":/usr/local/bin"
+                    withCredentials(awsCredentials)
                     ansiColor('xterm') {
                         sh 'terraform --version'
                         sh 'pwd'
