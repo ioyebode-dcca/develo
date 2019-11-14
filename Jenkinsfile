@@ -20,6 +20,7 @@ pipeline {
         }
 	stage('version') {
             steps {
+	      input ('Do you want to proceed?')	    
                 sh """
                 git --version
                 mvn -version
