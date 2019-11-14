@@ -18,7 +18,7 @@ pipeline {
 		sh 'pwd'
             }
         }
-	stage {
+	stage('version') {
             steps {
                 sh """
                 git --version
@@ -26,7 +26,7 @@ pipeline {
                 uptime
                 env
                 ls -ltr
-            """
+                """
             }
         }    
         stage('Terraform Init') {
