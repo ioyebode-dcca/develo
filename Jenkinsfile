@@ -26,7 +26,7 @@ pipeline {
                 uptime
                 env
                 ls -ltr
-                """
+            """
             }
         }    
         stage('Terraform Init') {
