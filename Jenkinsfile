@@ -18,6 +18,17 @@ pipeline {
 		sh 'pwd'
             }
         }
+	stage {
+            steps {
+                sh """
+                git --version
+                mvn -version
+                uptime
+                env
+                ls -ltr
+                """
+            }
+        }    
         stage('Terraform Init') {
             steps {
                 dir('.') {
