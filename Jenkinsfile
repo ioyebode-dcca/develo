@@ -48,5 +48,10 @@ pipeline {
                 }
             }
         }
+	stage ('check plan') {
+            steps {
+              input('Is terraform plan okay?')
+            }
+        }    
     }
 }
