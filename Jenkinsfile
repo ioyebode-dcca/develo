@@ -52,6 +52,13 @@ pipeline {
             steps {
               input('Is terraform plan okay?')
             }
-        }    
+        } 
+	stage(Ansible version) {
+            steps {
+                sh """
+                ansible --version
+                """
+            }  
+        }   
     }
 }
