@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-	            cleanWs()
+		cleanWs()
                 checkout scm
             }
         }
@@ -15,7 +15,7 @@ pipeline {
                     env.PATH += ":/usr/local/bin/"
                 }
                 sh 'terraform --version'
-		        sh 'pwd'
+		sh 'pwd'
             }
         }
         stage('Terraform Init') {
