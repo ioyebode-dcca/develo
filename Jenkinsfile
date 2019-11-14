@@ -1,38 +1,40 @@
 // Jenkinsfile
-//def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'awsCredentials']]
 String credentialsId = 'awsCredentials'
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('checkout') {
             steps {
-                echo 'Hello World'
-            }
-        }
-        stage ('Set terraform path') {
-            steps {
-                cleanWs()
+	            cleanWs()
                 checkout scm
             }
         }
-        stage ('set terraform path') {
+        stage('Set Terraform path') {
             steps {
-                //withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: credentialsId, accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
-                //withCredentials: 'AWS_ACCESS_KEY_ID'
-                //withCredentilas($AWS_SECRET_ACCESS_KEY)
                 script {
-                    env.PATH += ":/usr/local/bin"
-                    //withCredentials($AWS_ACCESS_KEY_ID')
-                    //withCredentials($AWS_SECRET_ACCESS_KEY')
-                    ansiColor('xterm') {
-                        sh 'terraform --version'
-                        sh 'pwd'
-                        sh 'ls'
-                        sh 'terraform init'
-                        sh 'terraform plan'
-                    }    
-                }  
-            }       
+                    env.PATH += ":/usr/local/bin/"
+                }
+                sh 'terraform --version'
+		        sh 'pwd'
+            }
         }
-    }    
+        stage('Terraform Init') {
+            steps {
+                dir('.') {
+                    withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding',
+                        credentialsId: credentialsId,
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                    ]]) {
+                        ansiColor('xterm'){
+                            sh 'pwd'
+                            sh 'terraform init'
+                            sh 'terraform plan -out=tfplan'
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
