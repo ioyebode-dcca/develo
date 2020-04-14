@@ -23,7 +23,7 @@ pipeline {
 	      input ('Do you want to proceed?')	    
                 sh """
                 git --version
-                mvn -version
+   //             mvn -version
                 uptime
                 env
                 ls -ltr
