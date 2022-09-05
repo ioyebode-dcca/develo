@@ -5,6 +5,7 @@ region = "${var.aws_region}"
 }
 
 # Terraform state will be stored in S3
+# testing VSC
 //terraform {
 //backend "s3" {
 //bucket = "forms3"
