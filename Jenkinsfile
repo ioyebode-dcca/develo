@@ -52,6 +52,12 @@ pipeline {
               input('Is terraform plan okay?')
             }
         } 
+	stage ('Apply') {
+            steps {
+              input('Is terraform plan okay?')
+	      sh "terraform apply -input=false tfplan"
+            }
+        }
 	stage('Ansible version') {
             steps {
                 sh """
